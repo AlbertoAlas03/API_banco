@@ -170,8 +170,22 @@ exports.modifyUsuario = async(req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Error al actualizar el estado', error });
     }
+}
 
 
+exports.listusuarioByStatus = async(req, res) => {
 
+    try {
+        const usuariosEncontrados = await datausuario.find({ status: false });
+
+        if (usuariosEncontrados.length === 0) {
+            return res.status(404).json({ message: 'No se encontraron usuarios con el estado false' });
+        }
+
+        res.json(usuariosEncontrados);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener los usuarios', error });
+    }
+        
 }
 
