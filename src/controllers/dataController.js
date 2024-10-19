@@ -176,7 +176,7 @@ exports.modifyUsuario = async(req, res) => {
 exports.listusuarioByStatus = async(req, res) => {
 
     try {
-        const usuariosEncontrados = await datausuario.find({ status: false });
+        const usuariosEncontrados = await datausuario.find({ Status: false });
 
         if (usuariosEncontrados.length === 0) {
             return res.status(404).json({ message: 'No se encontraron usuarios con el estado false' });
