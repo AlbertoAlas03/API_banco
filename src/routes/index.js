@@ -33,6 +33,6 @@ router.get('/api/listusuario', dataController.listusuario)
 
 router.post('/api/addusuario', dataController.addusuario)
 router.put('/api/modifyUsuario/:id', dataController.modifyUsuario)
-router.get('/api/listusuario/:id', dataController.listusuarioByStatus)
+router.get('/api/listusuarioByStatus', dataController.listusuarioByStatus)
 
 module.exports = router;
