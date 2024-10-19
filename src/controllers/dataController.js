@@ -129,7 +129,7 @@ exports.listusuario = async (req, res) => {
 exports.addusuario = async (req, res) => {
     const { Nombre_producto, Foto_carnet, Foto_rostro, Direccion, Telefono, Status } = req.body;
 
-    const data = new dataIngresos({
+    const data = new datausuario({
         Nombre_producto: Nombre_producto || ("sin definir"),
         Nombre_usuario: ("Juan"),
         Foto_carnet: Foto_carnet || ("sin definir"),
