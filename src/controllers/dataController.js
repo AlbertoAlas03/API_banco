@@ -1,7 +1,6 @@
 const dataIngresos = require('../models/Ingresos');
 const dataEgresos = require('../models/Egresos');
 const datausuario = require('../models/usuario');
-const datasolicitud = require('../models/Solicitud')
 
 //CRUD para ingresos
 
@@ -128,14 +127,16 @@ exports.listusuario = async (req, res) => {
 
 
 exports.addusuario = async (req, res) => {
-    const { Foto_carnet, Foto_rostro, Direccion, Telefono } = req.body;
+    const { Nombre_producto, Foto_carnet, Foto_rostro, Direccion, Telefono, Status } = req.body;
 
     const data = new dataIngresos({
-        Nombre: ("Juan"),
+        Nombre_producto: Nombre_producto || ("sin definir"),
+        Nombre_usuario: ("Juan"),
         Foto_carnet: Foto_carnet || ("sin definir"),
         Foto_rostro: Foto_rostro || ("sin definir"),
         Direccion: Direccion || ("sin definir"),
-        Telefono: Telefono || ("sin definir")
+        Telefono: Telefono || ("sin definir"),
+        Status: Status || false
     })
 
     try {
@@ -148,35 +149,3 @@ exports.addusuario = async (req, res) => {
     }
 };
 
-//CRUD para la solicitud
-
-exports.listdetalle = async (req, res) => {
-    try {
-        const data = await datasolicitud.find({});
-        res.json(data);
-    } catch (error) {
-        console.log(error);
-        res.status(200).send(error);
-        next();
-    }
-};
-
-exports.adddetalle = async (req, res) => {
-    const { ID_notification, Nombre_producto, Direccion, status } = req.body;
-
-    const data = new dataIngresos({
-        ID_notification: ID_notification || 0,
-        Nombre_producto: Nombre_producto || ("sin definir"),
-        Direccion: Direccion || ("sin definir"),
-        Status: status || false,
-    })
-
-    try {
-        await data.save();
-        res.json({ message: "Added new message", data: data });
-    } catch (error) {
-        console.log(error);
-        res.send(error);
-        next();
-    }
-};

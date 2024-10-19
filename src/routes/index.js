@@ -33,10 +33,4 @@ router.get('/api/listusuario', dataController.listusuario)
 
 router.post('/api/addusuario', dataController.addusuario)
 
-//endopints para solicitud
-
-router.get('/api/listdetalle', dataController.listdetalle)
-
-router.post('/api/adddetalle', dataController.adddetalle)
-
 module.exports = router;
