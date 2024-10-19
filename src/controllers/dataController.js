@@ -127,11 +127,11 @@ exports.listusuario = async (req, res) => {
 
 
 exports.addusuario = async (req, res) => {
-    const { Nombre_producto, Foto_carnet, Foto_rostro, Direccion, Telefono, Status } = req.body;
+    const { Nombre_producto, Nombre_usuario, Foto_carnet, Foto_rostro, Direccion, Telefono, Status } = req.body;
 
     const data = new datausuario({
         Nombre_producto: Nombre_producto || ("sin definir"),
-        Nombre_usuario: ("Juan"),
+        Nombre_usuario: Nombre_usuario || ("Juan Valdéz"),
         Foto_carnet: Foto_carnet || ("sin definir"),
         Foto_rostro: Foto_rostro || ("sin definir"),
         Direccion: Direccion || ("sin definir"),
